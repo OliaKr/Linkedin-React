@@ -1,10 +1,21 @@
 import React from 'react'
 import './App.css'
+import Header from './cmps/Header'
+import Sidebar from './cmps/Sidebar'
 
 function App() {
   return (
     <div className='app'>
-      <h1>Lets build a Linkedin CLONE</h1>
+      <Header />
+
+      {/* App Body */}
+
+      <div className='app-body'>
+        <Sidebar />
+      </div>
+
+      {/* Feed */}
+      {/* Widgets */}
     </div>
   )
 }
