@@ -1,4 +1,4 @@
-import { Avatar } from '@material-ui/core'
+import Avatar from '@mui/material/Avatar'
 import React from 'react'
 import '../assets/css/HeaderOption.css'
 

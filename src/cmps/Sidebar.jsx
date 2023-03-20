@@ -1,14 +1,23 @@
 import React from 'react'
 import '../assets/css/Sidebar.css'
-import { Avatar } from '@material-ui/core'
+import Avatar from '@mui/material/Avatar'
+import SidebarBottom from './SidebarBottom'
 
 function Sidebar() {
+  const recentItem = (topic) => (
+    <div className='sidebar-recentItem'>
+      <span className='sidebar-hash'></span>
+      <p>{topic}</p>
+    </div>
+  )
+
   return (
     <div className='sidebar'>
       <div className='sidebar-top'>
         <img
-          src=''
-          alt=''
+          src='https://res.cloudinary.com/dsinv9pik/image/upload/v1676457790/IMG_6332_apt9pt.jpg
+          '
+          alt='background'
         />
         <Avatar className='sidebar-avatar' />
         <h2>Daniel Herman</h2>
@@ -27,7 +36,14 @@ function Sidebar() {
       </div>
 
       <div className='sidebar-bottom'>
-        <p>Recent</p>
+        <SidebarBottom title='Recent' />
+        <SidebarBottom title='Groups' />
+
+        {/* {recentItem('reactjs')}
+        {recentItem('programming')}
+        {recentItem('softwareengeineering')}
+        {recentItem('design')}
+        {recentItem('developer')} */}
       </div>
     </div>
   )

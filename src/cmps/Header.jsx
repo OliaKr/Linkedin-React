@@ -1,11 +1,10 @@
 import React from 'react'
 import '../assets/css/Header.css'
-import SearchIcon from '@material-ui/icons/Search'
-import { grey } from '@material-ui/core/colors'
+import SearchIcon from '@mui/icons-material/Search'
 import linkedin from '../assets/icons/linkedin.svg'
 import HeaderOption from './HeaderOption'
 import homeicon from '../assets/icons/homeicon.svg'
-import networkicon from '../assets/icons/networkicon.svg'
+import network from '../assets/icons/network.svg'
 import jobsicon from '../assets/icons/jobsicon.svg'
 import messageicon from '../assets/icons/messageicon.svg'
 import notificationsicon from '../assets/icons/notificationsicon.svg'
@@ -30,7 +29,7 @@ function Header() {
         />
         <HeaderOption
           title='My Network'
-          imgURL={networkicon}
+          imgURL={network}
         />
         <HeaderOption
           title='Jobs'

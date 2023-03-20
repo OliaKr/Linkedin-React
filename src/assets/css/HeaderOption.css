@@ -6,13 +6,11 @@
     color: gray;
     cursor: pointer;
     line-height: 1.5;
-
-
 }
 
 .headerOption:hover {
     color: black;
-
+    
 }
 
 .headerOption-title {
@@ -20,16 +18,23 @@
     /* width: 32px; */
     font-size: 12px;
     font-weight: 400;
-    line-height: 10px;
-    
+    line-height: 10px;   
 }
 .headerOption-icon > img{
     display: unset;
+   
        
 }
 
 .headerOption-icon {
+    
     object-fit: contain;
     height: 25px !important;
     width: 25px !important;
+   
+ 
 }
+/* .headerOption-icon >img:hover {
+    color: black;
+} */
+
