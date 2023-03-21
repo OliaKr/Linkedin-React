@@ -4,13 +4,6 @@ import Avatar from '@mui/material/Avatar'
 import SidebarBottom from './SidebarBottom'
 
 function Sidebar() {
-  const recentItem = (topic) => (
-    <div className='sidebar-recentItem'>
-      <span className='sidebar-hash'></span>
-      <p>{topic}</p>
-    </div>
-  )
-
   return (
     <div className='sidebar'>
       <div className='sidebar-top'>
@@ -38,12 +31,6 @@ function Sidebar() {
       <div className='sidebar-bottom'>
         <SidebarBottom title='Recent' />
         <SidebarBottom title='Groups' />
-
-        {/* {recentItem('reactjs')}
-        {recentItem('programming')}
-        {recentItem('softwareengeineering')}
-        {recentItem('design')}
-        {recentItem('developer')} */}
       </div>
     </div>
   )

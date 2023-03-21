@@ -11,6 +11,7 @@ import { db } from '../firebase.js'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
+import { query, orderBy } from 'firebase/firestore'
 
 import {
   addDoc,
@@ -39,13 +40,16 @@ function Feed() {
   // }, [])
 
   useEffect(() => {
-    onSnapshot(collection(db, 'posts'), (snapshot) =>
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
+    onSnapshot(
+      collection(db, 'posts'),
+      orderBy('timestamp', 'asc'),
+      (snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
     )
   }, [])
 

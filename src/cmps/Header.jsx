@@ -1,22 +1,20 @@
 import React from 'react'
 import '../assets/css/Header.css'
 import SearchIcon from '@mui/icons-material/Search'
-import linkedin from '../assets/icons/linkedin.svg'
+import { ReactComponent as Linkedin } from '../assets/icons/linkedin.svg'
 import HeaderOption from './HeaderOption'
-import homeicon from '../assets/icons/homeicon.svg'
-import network from '../assets/icons/network.svg'
-import jobsicon from '../assets/icons/jobsicon.svg'
-import messageicon from '../assets/icons/messageicon.svg'
-import notificationsicon from '../assets/icons/notificationsicon.svg'
+
+import { ReactComponent as Network } from '../assets/icons/network.svg'
+import { ReactComponent as Jobsicon } from '../assets/icons/jobsicon.svg'
+import { ReactComponent as Messageicon } from '../assets/icons/messageicon.svg'
+import { ReactComponent as Notificationsicon } from '../assets/icons/notificationsicon.svg'
+import { ReactComponent as Homeicon } from '../assets/icons/homeicon.svg'
 
 function Header() {
   return (
     <div className='header'>
       <div className='header-left'>
-        <img
-          src={linkedin}
-          alt='linkedin'
-        />
+        <Linkedin height='37px' />
         <div className='header-search'>
           <SearchIcon title='Home' />
           <input type='text' />
@@ -25,23 +23,23 @@ function Header() {
       <div className='header-right'>
         <HeaderOption
           title='Home'
-          imgURL={homeicon}
+          icon={<Homeicon />}
         />
         <HeaderOption
           title='My Network'
-          imgURL={network}
+          icon={<Network />}
         />
         <HeaderOption
           title='Jobs'
-          imgURL={jobsicon}
+          icon={<Jobsicon />}
         />
         <HeaderOption
           title='Messaging'
-          imgURL={messageicon}
+          icon={<Messageicon />}
         />
         <HeaderOption
           title='Notifications'
-          imgURL={notificationsicon}
+          icon={<Notificationsicon />}
         />
         <HeaderOption
           avatar='https://res.cloudinary.com/dsinv9pik/image/upload/v1679010480/daniel_b8yuzx.jpg'

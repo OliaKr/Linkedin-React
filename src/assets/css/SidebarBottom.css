@@ -1,0 +1,27 @@
+.option-line{
+    display: flex;
+    color: gray;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 0px;
+    
+    
+}
+.option-line:hover {
+    color: black; 
+    background-color: lightgray;
+   
+   
+}
+.recent-groups{
+    margin-bottom: 8px;
+}
+.recent-groups > h4 {
+    font-weight: 400;
+    height: 32px;
+    
+
+}
+.option-line > span {
+    margin-left: 8px;
+}
