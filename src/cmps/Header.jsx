@@ -17,7 +17,10 @@ function Header() {
         <Linkedin height='37px' />
         <div className='header-search'>
           <SearchIcon title='Home' />
-          <input type='text' />
+          <input
+            placeholder='Search'
+            type='text'
+          />
         </div>
       </div>
       <div className='header-right'>
