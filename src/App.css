@@ -11,3 +11,6 @@
    display: flex; 
    justify-content: start;
 }
+.MuiInputBase-root .MuiOutlinedInput-root .MuiInputBase-colorPrimary .css-1532dtp-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+max-width: 26px !important;
+}

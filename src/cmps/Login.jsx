@@ -6,6 +6,7 @@ import { login } from '../features/userSlice'
 import {
   updateProfile,
   createUserWithEmailAndPassword,
+  signOut,
   signInWithEmailAndPassword,
   getAuth,
 } from 'firebase/auth'
@@ -24,7 +25,6 @@ function Login() {
       .then((userCredential) => {
         const user = userCredential.user
         console.log('found the user from DB', user)
-        // login(user)
       })
       .catch((error) => {
         const errorCode = error.code
@@ -32,26 +32,26 @@ function Login() {
       })
   }
 
-  // const register = async () => {
-  //   try {
-  //     if (!name) {
-  //       return alert('Please enter a full name')
-  //     }
-  //     await createUserWithEmailAndPassword(auth, email, password)
-  //       .then((u) => {
-  //         const user = u.user
-  //         console.log('user', user)
-  //       })
-  //       .then((user) => {
-  //         updateProfile(user, {
-  //           displayName: name,
-  //           photoURL: profilePic,
-  //         })
-  //       })
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+  const register = async () => {
+    try {
+      if (!name) {
+        return alert('Please enter a full name')
+      }
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then((u) => {
+          const user = u.user
+          console.log('user', user)
+        })
+        .then((user) => {
+          updateProfile(user, {
+            displayName: name,
+            photoURL: profilePic,
+          })
+        })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className='login'>
@@ -96,7 +96,7 @@ function Login() {
       <p>Not a member?</p>
       <span
         className='login-register'
-        // onClick={register}
+        onClick={register}
       >
         Register Now
       </span>
