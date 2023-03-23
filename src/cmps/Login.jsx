@@ -1,29 +1,58 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import '../assets/css/Login.css'
 import { ReactComponent as Linkedinloginicon } from '../assets/icons/linkedinloginicon.svg'
-import { auth } from '../firebase'
+import { login } from '../features/userSlice'
+import {
+  updateProfile,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  getAuth,
+} from 'firebase/auth'
 
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
   const [profilePic, setProfilePic] = useState('')
+  const dispatch = useDispatch
+  const auth = getAuth()
 
-  const loginToApp = (e) => {
-    auth.preventDefault()
-  }
-
-  const register = () => {
-    if (!name) {
-      return alert('Please enter a full name')
-    }
-    auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
-      userAuth.user.updateProfile({
-        displayName: name,
-        photoURL: profilePic,
+  const loginToApp = async (e) => {
+    e.preventDefault()
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user
+        console.log('found the user from DB', user)
+        // login(user)
       })
-    })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+      })
   }
+
+  // const register = async () => {
+  //   try {
+  //     if (!name) {
+  //       return alert('Please enter a full name')
+  //     }
+  //     await createUserWithEmailAndPassword(auth, email, password)
+  //       .then((u) => {
+  //         const user = u.user
+  //         console.log('user', user)
+  //       })
+  //       .then((user) => {
+  //         updateProfile(user, {
+  //           displayName: name,
+  //           photoURL: profilePic,
+  //         })
+  //       })
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
   return (
     <div className='login'>
       <Linkedinloginicon
@@ -67,7 +96,7 @@ function Login() {
       <p>Not a member?</p>
       <span
         className='login-register'
-        onClick={register}
+        // onClick={register}
       >
         Register Now
       </span>
