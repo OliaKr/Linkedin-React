@@ -17,6 +17,9 @@
     padding: 10px;
     padding-left: 15px;
 }
+.feed-input:hover {
+    background-color: lightgray;
+}
 .feed-input > form {
     display: flex;
     width: 100%;
@@ -30,6 +33,7 @@
     margin-left: 10px;
     outline-width: 0;
     font-weight: 600;
+    background-color: transparent;
 }
 .feed-input > form > button {
     display: none;
@@ -37,5 +41,4 @@
 .feed-inputOptions {
     display: flex;
     justify-content: space-evenly;
-
 }

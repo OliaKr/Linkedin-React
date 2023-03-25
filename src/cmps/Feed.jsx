@@ -84,22 +84,37 @@ function Feed() {
     <div className='feed'>
       <div className='feed-inputContainer'>
         <div className='feed-input'>
-          <CreateIcon />
           <form>
             <input
+              placeholder='Start a post'
               value={input}
               onChange={(e) => setInput(e.target.value)}
               type='text'
             />
-            <button onClick={sendPost} type='submit'>
+            <button
+              onClick={sendPost}
+              type='submit'
+            >
               Send
             </button>
           </form>
         </div>
         <div className='feed-inputOptions'>
-          <InputOption Icon={ImageIcon} title='Photo' color='#378fe9' />
-          <InputOption Icon={SmartDisplayIcon} title='Video' color='#5f9b41' />
-          <InputOption Icon={EventNoteIcon} title='Event' color='#c37d16' />
+          <InputOption
+            Icon={ImageIcon}
+            title='Photo'
+            color='#378fe9'
+          />
+          <InputOption
+            Icon={SmartDisplayIcon}
+            title='Video'
+            color='#5f9b41'
+          />
+          <InputOption
+            Icon={EventNoteIcon}
+            title='Event'
+            color='#c37d16'
+          />
           <InputOption
             Icon={CalendarViewDayIcon}
             title='Write article'

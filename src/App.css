@@ -9,8 +9,18 @@
 .app-body {
    margin: 24px 32px;
    display: flex; 
-   justify-content: start;
+   justify-content: center;
+
 }
 .MuiInputBase-root .MuiOutlinedInput-root .MuiInputBase-colorPrimary .css-1532dtp-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
 max-width: 26px !important;
 }
+
+button {
+    background-color: white;
+}
+@media (max-width: 480px){
+    .app-body{
+     width: 100%;
+    }
+  }

@@ -1,0 +1,75 @@
+.widgets {
+    width: 300px;
+    border: 1px solid lightgray;
+    background-color: white;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+
+    
+}
+.widgets-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 12px 12px 12px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+   
+    
+}
+.widgets-header > h2 {
+    font-size: 16px;
+    line-height: 24px;
+    font-size: 400;
+    color: rgba(0, 0, 0, 9);
+    
+   
+}
+.right-section{
+    display: flex;
+    flex-direction: column;
+   
+}
+.option-top {
+    display: flex;
+    align-items: start;
+    gap: 12px;
+    cursor: pointer;
+    
+
+ 
+}
+.follow-btn {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 40px;
+    padding: 6px 16px;
+    font-size: 16px;
+    align-items: center;
+    gap: 4px;
+    color: gray;
+    border: 1px solid gray;
+   
+    margin: 12px 0px;
+    cursor: pointer;
+    
+}
+.follow-btn:hover {
+    background-color: lightgray;
+
+}
+.title {
+    font-size: 14px;
+}
+.subtitle {
+    color: gray;
+    font-weight: 400;
+}
+@media (max-width: 990px ){
+    .widgets {
+        display: none;
+    }
+    
+}
+

@@ -22,7 +22,6 @@
 }
 .headerOption-icon > img{
     display: unset;
-   
        
 }
 
@@ -31,10 +30,17 @@
     object-fit: contain;
     height: 25px !important;
     width: 25px !important;
-   
- 
 }
-/* .headerOption-icon >img:hover {
-    color: black;
-} */
+.option {
+    padding: 0px 8px;
+}
+.me-section {
+    display: flex;
+    max-height: 30px;
+}
+@media (max-width: 1070px ){
+    .headerOption-title, .me-section {
+        display: none;
+    }    
+}
 

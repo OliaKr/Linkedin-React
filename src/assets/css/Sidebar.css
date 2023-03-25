@@ -107,3 +107,9 @@
     margin-left: 5px;
     
 }
+@media (max-width: 765px ){
+    .sidebar {
+        display: none;
+    }
+    
+}
