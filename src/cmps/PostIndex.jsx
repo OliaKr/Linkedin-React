@@ -7,11 +7,11 @@ import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined'
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined'
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined'
 
-function PostIndex({ name, description, message, photoUrl }) {
+function PostIndex({ name, description, message, photoURL }) {
   return (
     <div className='post'>
       <div className='post-header'>
-        <Avatar />
+        <Avatar src={photoURL} />
 
         <div className='post-info'>
           <h2>{name}</h2>

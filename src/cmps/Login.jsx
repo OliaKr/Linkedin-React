@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { storage } from '../firebase'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { v4 } from 'uuid'
 import '../assets/css/Login.css'
 import { ReactComponent as Linkedinloginicon } from '../assets/icons/linkedinloginicon.svg'
-import { login } from '../features/userSlice'
+import { login } from '../store/user.action'
 import {
   updateProfile,
   createUserWithEmailAndPassword,
-  signOut,
   signInWithEmailAndPassword,
   getAuth,
 } from 'firebase/auth'
@@ -16,7 +17,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
   const [profilePic, setProfilePic] = useState('')
-  const dispatch = useDispatch
+  const [picUrl, setPicUrl] = useState('')
   const auth = getAuth()
 
   const loginToApp = async (e) => {
@@ -27,30 +28,37 @@ function Login() {
         console.log('found the user from DB', user)
       })
       .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
+        console.log(error)
       })
   }
 
+  const uploadImage = () => {
+    if (profilePic == null) return
+    const imageRef = ref(storage, `images/${profilePic.name + v4()}`)
+    uploadBytes(imageRef, profilePic).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setPicUrl(url)
+      })
+    })
+  }
+
   const register = async () => {
-    try {
-      if (!name) {
-        return alert('Please enter a full name')
-      }
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then((u) => {
-          const user = u.user
-          console.log('user', user)
-        })
-        .then((user) => {
-          updateProfile(user, {
-            displayName: name,
-            photoURL: profilePic,
-          })
-        })
-    } catch (error) {
-      console.log(error)
+    uploadImage()
+    if (!name) {
+      return alert('Please enter a full name')
     }
+    await createUserWithEmailAndPassword(auth, email, password)
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: picUrl,
+    })
+      .then(() => {
+        console.log(auth.currentUser)
+      })
+      .catch((error) => console.log(error))
+
+    setEmail('')
+    setPassword('')
   }
 
   return (
@@ -68,11 +76,22 @@ function Login() {
           placeholder='Full name (required if registering)'
           type='text'
         />
+        {/* <button className='imgUploaderBtn'>
+          <label htmlFor='imgUpload'>Profile pic URL (optional)</label>
+        </button>
         <input
+          type='file'
+          id='imgUpload'
+          hidden
+          accept='image/*'
           value={profilePic}
-          onChange={(e) => setProfilePic(e.target.value)}
-          placeholder='Profile pic URL (optional)'
-          type='text'
+          onChange={(e) => setProfilePic(e.target.files[0])}
+        /> */}
+        <input
+          type='file'
+          multiple
+          accept='image/*'
+          onChange={(e) => setProfilePic(e.target.files[0])}
         />
         <input
           value={email}
@@ -89,6 +108,7 @@ function Login() {
         <button
           type='submit'
           onClick={loginToApp}
+          className='loginBtn'
         >
           Sign In
         </button>

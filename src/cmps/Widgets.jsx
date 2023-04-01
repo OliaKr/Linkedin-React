@@ -35,7 +35,7 @@ function Widgets() {
         {options.map((option) => (
           <div
             className='option'
-            key={option}
+            key={option.title}
           >
             <div className='option-top'>
               {option.icon}
@@ -48,10 +48,6 @@ function Widgets() {
                 </button>
               </div>
             </div>
-            {/* <button className='follow-btn'>
-              <Plus width='16px' />
-              <h4>Follow</h4>
-            </button> */}
           </div>
         ))}
       </div>

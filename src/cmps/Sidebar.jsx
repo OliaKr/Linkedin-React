@@ -2,18 +2,23 @@ import React from 'react'
 import '../assets/css/Sidebar.css'
 import Avatar from '@mui/material/Avatar'
 import SidebarBottom from './SidebarBottom'
+import { useSelector } from 'react-redux'
 
 function Sidebar() {
+  const user = useSelector((storeState) => storeState.userModule.user)
+  console.log('sidebar', user)
   return (
     <div className='sidebar'>
       <div className='sidebar-top'>
         <img
-          src='https://res.cloudinary.com/dsinv9pik/image/upload/v1676457790/IMG_6332_apt9pt.jpg
-          '
+          src='https://res.cloudinary.com/dsinv9pik/image/upload/v1676457790/IMG_6332_apt9pt.jpg'
           alt='background'
         />
-        <Avatar className='sidebar-avatar' />
-        <h2>Daniel Herman</h2>
+        <Avatar
+          className='sidebar-avatar'
+          src={user.photoURL}
+        />
+        <h2>{user.displayName}</h2>
         <h4>Fullstack Developer</h4>
       </div>
 

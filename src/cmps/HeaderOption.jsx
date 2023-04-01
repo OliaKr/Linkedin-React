@@ -1,14 +1,13 @@
 import Avatar from '@mui/material/Avatar'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import '../assets/css/HeaderOption.css'
-import Select from '@mui/material/Select'
-import { logout, selectUser } from '../features/userSlice'
+import { Select, MenuItem } from '@mui/material'
+import { logout } from '../store/user.action'
 import { signOut, getAuth } from 'firebase/auth'
 
 function HeaderOption({ avatar, icon, title }) {
-  const dispatch = useDispatch()
-  const user = useSelector(selectUser)
+  const user = useSelector((storeState) => storeState.userModule.user)
 
   const onLogout = () => {
     const auth = getAuth()
@@ -19,8 +18,13 @@ function HeaderOption({ avatar, icon, title }) {
       .catch((err) => {
         console.log(err)
       })
-    dispatch(logout())
+    logout()
   }
+
+  const handleChange = (event) => {
+    console.log('logout')
+  }
+
   return (
     <div className='headerOption'>
       <div className='headerOption-icon'>
@@ -28,13 +32,17 @@ function HeaderOption({ avatar, icon, title }) {
         {avatar && (
           <div>
             <Avatar
-              className='headerOption-icon'
               src={avatar}
+              className='headerOption-icon'
             />
             <div className='me-section'>
               <span>Me</span>
               {user && (
                 <Select
+                  labelId='signout'
+                  value=''
+                  label='Signout'
+                  onChange={handleChange}
                   sx={{
                     boxShadow: 'none',
                     marginLeft: '-16px',
@@ -43,9 +51,13 @@ function HeaderOption({ avatar, icon, title }) {
                     },
                   }}
                 >
-                  <option className='option'>
-                    <button onClick={onLogout}>Sign Out</button>
-                  </option>
+                  <MenuItem
+                    onClick={onLogout}
+                    value='Sign Out'
+                    className='option'
+                  >
+                    Sign Out
+                  </MenuItem>
                 </Select>
               )}
             </div>

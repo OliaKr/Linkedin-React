@@ -4,31 +4,27 @@ import Header from './cmps/Header'
 import Sidebar from './cmps/Sidebar'
 import Feed from './cmps/Feed'
 import Login from './cmps/Login'
-import { useDispatch, useSelector } from 'react-redux'
-import { login, logout, selectUser } from './features/userSlice'
+import { useSelector } from 'react-redux'
+import { login, logout } from './store/user.action'
 import { useEffect } from 'react'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import Widgets from './cmps/Widgets'
 
 function App() {
-  const user = useSelector(selectUser)
-  const dispatch = useDispatch()
+  const user = useSelector((storeState) => storeState.userModule.user)
   const auth = getAuth()
 
   useEffect(() => {
     onAuthStateChanged(auth, (userAuth) => {
-      console.log('from app', userAuth)
       if (userAuth) {
-        dispatch(
-          login({
-            email: userAuth.email,
-            uid: userAuth.uid,
-            displayName: userAuth.displayName,
-            photoURL: userAuth.photoURL,
-          })
-        )
+        login({
+          email: auth.currentUser.email,
+          uid: auth.currentUser.uid,
+          displayName: auth.currentUser.displayName,
+          photoURL: auth.currentUser.photoURL,
+        })
       } else {
-        dispatch(logout())
+        logout()
       }
     })
   }, [])
