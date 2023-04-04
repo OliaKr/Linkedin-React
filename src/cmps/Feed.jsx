@@ -45,10 +45,9 @@ function Feed() {
     e.preventDefault()
     const res = await addDoc(collection(db, 'posts'), {
       name: user.displayName,
-      description: 'this is a test',
+      description: `${user.displayName} wrote a post`,
       message: input,
-      photoURL: '',
-      // timestamp: Timestamp.fromDate(new Date('December 10, 1815'))
+      photoURL: user?.photoURL,
       timestamp: serverTimestamp(),
     })
     setInput('')
@@ -61,7 +60,7 @@ function Feed() {
       <div className='feed-inputContainer'>
         <div className='avatar-input'>
           <Avatar
-            src={user.photoURL}
+            src={user?.photoURL}
             sx={{ width: '48px', height: '48px' }}
             className='feed-avatar'
           />
@@ -106,7 +105,6 @@ function Feed() {
         </div>
       </div>
       <div>
-        {/* Posts */}
         {posts.map(({ id, data: { name, description, message, photoURL } }) => (
           <PostIndex
             key={id}

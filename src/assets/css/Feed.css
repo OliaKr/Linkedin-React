@@ -53,3 +53,15 @@
    
   
 }
+
+@media (max-width: 480px) {
+    .feed {
+        margin: 0px;
+        min-width: 100vw;
+    }
+    .feed-inputContainer {
+        margin-top: 20px;
+    }
+   
+    
+}

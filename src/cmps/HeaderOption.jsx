@@ -33,10 +33,11 @@ function HeaderOption({ avatar, icon, title }) {
           <div>
             <Avatar
               src={avatar}
-              className='headerOption-icon'
+              sx={{ height: '25px', width: '25px' }}
+              className='header-avatar'
             />
             <div className='me-section'>
-              <span>Me</span>
+              <span className='meTxt'>Me</span>
               {user && (
                 <Select
                   labelId='signout'

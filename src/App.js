@@ -27,7 +27,7 @@ function App() {
         logout()
       }
     })
-  }, [])
+  }, [auth])
 
   return (
     <div className='app'>

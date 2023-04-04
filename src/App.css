@@ -1,5 +1,5 @@
 .app {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #f3f2ef;
     display: flex;
     flex-direction: column;
@@ -16,11 +16,19 @@
 max-width: 26px !important;
 }
 
+.css-nf3nck-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+    margin-top:-10px !important;
+}
+
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+    background-color: white !important;
+}
+
 button {
     background-color: white;
 }
 @media (max-width: 480px){
     .app-body{
-     width: 100%;
+     margin: 0px;
     }
   }
