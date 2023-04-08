@@ -7,9 +7,12 @@
 .post-header {
     display: flex;
     /* flex-direction: column; */
-    
     margin-bottom: 10px;
-
+}
+.post-header-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 .post-info {
     margin-left: 10px;

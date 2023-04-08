@@ -1,0 +1,9 @@
+.drawer-container{
+ display: flex;
+ transition: all .5s ease-in-out;
+
+  gap: 8px;
+  top: 100%; 
+  transform: translateY(-100%, 0%);
+  
+}

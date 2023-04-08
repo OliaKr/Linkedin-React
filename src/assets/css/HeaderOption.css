@@ -6,7 +6,6 @@
     color: gray;
     cursor: pointer;
     line-height: 1.5;
-    justify-content: center;
 }
 
 .headerOption:hover {

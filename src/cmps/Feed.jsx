@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux'
 
 import 'firebase/auth'
 import 'firebase/firestore'
-import { orderBy } from 'firebase/firestore'
 import Avatar from '@mui/material/Avatar'
 
 import {
@@ -20,6 +19,8 @@ import {
   collection,
   serverTimestamp,
   onSnapshot,
+  query,
+  orderBy,
 } from 'firebase/firestore'
 
 function Feed() {
@@ -28,18 +29,18 @@ function Feed() {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    onSnapshot(
-      collection(db, 'posts'),
-      orderBy('timestamp', 'asc'),
-      (snapshot) =>
-        setPosts(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-    )
+    const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'))
+    onSnapshot(q, (snapshot) => {
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    })
   }, [])
+
+  console.log(posts)
 
   const sendPost = async (e) => {
     e.preventDefault()
@@ -51,7 +52,6 @@ function Feed() {
       timestamp: serverTimestamp(),
     })
     setInput('')
-
     console.log(res.id)
   }
 
@@ -105,15 +105,32 @@ function Feed() {
         </div>
       </div>
       <div>
-        {posts.map(({ id, data: { name, description, message, photoURL } }) => (
-          <PostIndex
-            key={id}
-            name={name}
-            description={description}
-            message={message}
-            photoURL={photoURL}
-          />
-        ))}
+        {posts.map(
+          ({
+            id,
+            data: {
+              name,
+              description,
+              message,
+              photoURL,
+              likes,
+              comments,
+              timestamp,
+            },
+          }) => (
+            <PostIndex
+              key={id}
+              id={id}
+              name={name}
+              description={description}
+              message={message}
+              photoURL={photoURL}
+              likes={likes}
+              comments={comments}
+              timestamp={timestamp}
+            />
+          )
+        )}
       </div>
     </div>
   )
