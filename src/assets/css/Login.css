@@ -43,9 +43,9 @@
 }
 .imgUploaderBtn{
     display: flex;
-   align-items: center;
-   padding-left: 10px;
-   color: gray;
+    align-items: center;
+    padding-left: 10px;
+    color: gray;
     background-color: white;
     border: 2px solid black;
     border-radius:5px;

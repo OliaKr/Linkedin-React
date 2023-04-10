@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 
 function Sidebar() {
   const user = useSelector((storeState) => storeState.userModule.user)
-  console.log('sidebar', user)
   return (
     <div className='sidebar'>
       <div className='sidebar-top'>

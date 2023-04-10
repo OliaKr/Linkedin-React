@@ -1,5 +1,5 @@
 import { store } from '../store/store.js'
-import { LOG_IN, LOG_OUT } from '../store/user.reducer.js'
+import { LOG_IN, LOG_OUT, SET_POST_IMG } from '../store/user.reducer.js'
 
 export async function login(user) {
   try {
@@ -21,6 +21,19 @@ export async function logout() {
     })
   } catch (err) {
     console.log('cant logout user', err)
+    throw err
+  }
+}
+
+export async function setPostImg(postImg, type) {
+  try {
+    store.dispatch({
+      type: SET_POST_IMG,
+      postImg: postImg,
+      postImgType: type,
+    })
+  } catch (err) {
+    console.log('cant set post img', err)
     throw err
   }
 }

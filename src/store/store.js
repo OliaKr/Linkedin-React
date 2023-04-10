@@ -1,8 +1,10 @@
 import { userReducer } from './user.reducer.js'
+import { modalDataReducer } from './modalData.reducer.js'
 import { createStore, combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
   userModule: userReducer,
+  modalModule: modalDataReducer,
 })
 
 const middleware = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

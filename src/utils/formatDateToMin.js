@@ -1,6 +1,6 @@
 export const formatDateToMin = (date) => {
   const now = new Date().getTime();
-  const currentDate = new Date(date).getTime();
+  const currentDate = new Date(date * 1000).getTime();
   const sum = now - currentDate;
   if (sum < 60000) {
     const seconds = Math.floor(sum / 1000);
