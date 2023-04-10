@@ -1,6 +1,5 @@
 .post {
     background-color: white;
-    padding: 15px;
     margin-bottom: 10px;
     border-radius: 10px;
 }
@@ -8,6 +7,7 @@
     display: flex;
     /* flex-direction: column; */
     margin-bottom: 10px;
+    padding: 15px 15px 0px 15px;
 }
 .post-header-content{
     display: flex;
@@ -22,12 +22,12 @@
     color: gray;
 }
 .post-body {
-    margin-left: 10px;
     overflow-wrap: break-word;
 }
 .post-body >p {
     font-size: 14px;
     line-height: 20px;
+    margin-left: 10px;
 }
 .post-info > h2 {
     font-size: 15px;
@@ -35,11 +35,11 @@
 .post-img-container{
     display:flex;
     justify-content:center;
-    width: 100%;
+    min-width: 100%;
 }
 .post-img{
     max-width: 100%;
-     height: 300px;
+     max-height: 100%;
 }
 .post-buttons {
     display: flex;
@@ -63,6 +63,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    padding: 0px 10px;
 }
 .likes-count{
     display: flex; 
