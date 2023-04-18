@@ -40,6 +40,7 @@ function HeaderOption({ avatar, icon, title }) {
               <span className='meTxt'>Me</span>
               {user && (
                 <Select
+                  className='select'
                   labelId='signout'
                   value=''
                   label='Signout'

@@ -52,6 +52,13 @@
     .headerOption {
         margin-right: 0px;
     }
+    .me-section {
+        display: block;   
+    }
+    .meTxt{
+        display: none;
+    }
+  
 }
 
 .meTxt{
