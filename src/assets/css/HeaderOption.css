@@ -53,9 +53,13 @@
         margin-right: 0px;
     }
     .me-section {
-        display: block;   
+        display: block; 
+        
     }
     .meTxt{
+        display: none;
+    }
+    .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
         display: none;
     }
   

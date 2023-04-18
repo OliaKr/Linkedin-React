@@ -10,14 +10,27 @@
     background-color: whitesmoke;
     border-radius: 10px;
 }
-.inputOption > h4 {
+
+.icon-text{
+    display: flex;
+    align-items: center;
     margin-left: 5px;
     font-size: 14px;
     line-height: 28px;
     font-weight: 600;
-
-
+    gap: 8px;
 }
+
+
+@media (max-width: 1420px) {
+    .icon-title {
+        overflow:hidden;
+        padding:5px;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+}
+
 @media (max-width: 480px) {
     .icon-title {
         display: none;

@@ -20,31 +20,39 @@ function InputOption({
     >
       {tooltipTxt ? (
         <Tooltip title={`${countNum} ${tooltipTxt}`}>
-          <Icon
-            fill={color}
-            color={color}
-            width='24px'
-          />
-        </Tooltip>
-      ) : upload ? (
-        <ImgUploader
-          children={
+          <div className='icon-text'>
             <Icon
               fill={color}
               color={color}
               width='24px'
             />
+            <h4 className='icon-title'>{title}</h4>
+          </div>
+        </Tooltip>
+      ) : upload ? (
+        <ImgUploader
+          children={
+            <div className='icon-text'>
+              <Icon
+                fill={color}
+                color={color}
+                width='24px'
+              />
+              <h4 className='icon-title'>{title}</h4>
+            </div>
           }
         />
       ) : (
-        <Icon
-          fill={color}
-          color={color}
-          width='24px'
-          onClick={onClick}
-        />
+        <div className='icon-text'>
+          <Icon
+            fill={color}
+            color={color}
+            width='24px'
+            onClick={onClick}
+          />
+          <h4 className='icon-title'>{title}</h4>
+        </div>
       )}
-      <h4 className='icon-title'>{title}</h4>
     </div>
   )
 }
