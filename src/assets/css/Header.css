@@ -56,7 +56,6 @@
 @media(max-width:480px){
     .header{
         height: 25px;
-       
     }
     .header-search{
         background-color: white;
@@ -79,5 +78,5 @@
     }
    .header-left{
      gap:8px;
-}
+    }
 }

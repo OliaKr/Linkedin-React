@@ -1,10 +1,18 @@
 .custom-modal-title{
-    text-align: center; 
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 .modal-data-container{
     display: flex;
     gap: 8px;
     padding: 8px;
-    border: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+.custom-modal-head{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    gap: 10px;
+    margin-bottom: 10px;
+
 }

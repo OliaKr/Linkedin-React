@@ -28,6 +28,7 @@
     font-size: 14px;
     line-height: 20px;
     margin-left: 10px;
+    margin-bottom: 6px;
 }
 .post-info > h2 {
     font-size: 15px;
@@ -49,8 +50,8 @@
 
 .drawerOpen{
     transform: translateY(10%);
-    /* opacity: 1; */
     transition: all 0.8s ease;
+    padding-bottom: 10px;
 } 
 .drawerClose{
     transform: translateY(-40%);
@@ -89,4 +90,10 @@
 .comment-div-layout{
     display: flex;
     justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+    .comment-div{
+        max-width: 94%;
+    }
 }

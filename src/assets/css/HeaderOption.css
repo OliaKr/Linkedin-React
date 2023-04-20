@@ -37,7 +37,12 @@
 .me-section {
     display: flex;
     max-height: 30px;
-    margin-top: -4px;
+    margin-top: -2px;
+    margin-left: 4px;
+}
+
+.meTxt{
+    font-size: 12px;
 }
 @media (max-width: 1070px ){
     .headerOption-title, .me-section {
@@ -54,18 +59,13 @@
     }
     .me-section {
         display: block; 
-        
-    }
+        }
     .meTxt{
         display: none;
     }
-    .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
-        display: none;
-    }
-  
+    select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
 }
-
-.meTxt{
-    font-size: 12px;
 }
 
